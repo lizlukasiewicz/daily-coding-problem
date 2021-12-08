@@ -18,13 +18,21 @@ x x x x x
 x x x x x
 x x x x x
 x x x x x
+
 """
 import math
+def countMoves(m, n):
+    k = (max(m, n)) - 1
+    moves = (m + n) - 2
+    print(math.comb(moves, k))
+
+countMoves(5, 5)
 # math.comb (n, k) # of possible combinations of k things from n items
 # math.comb( of 8 things, from 25 items)
-print('2x2 combo is ', math.comb(2, 1))
-print('5x5 combo is', math.comb(8, 4))
+#print('2x2 combo is ', math.comb(2, 1))
+#print('5x5 combo is', math.comb(8, 4))
+#print('5 x 3 combo is', math.comb(6, 4))
 # 
-# moves = n * m -2 (2 because the first and last move)
+# moves = n + m -2 (2 because the first and last move)
 # 
 # math.comb(2 things from 4 items) 
