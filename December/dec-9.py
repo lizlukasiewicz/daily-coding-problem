@@ -16,34 +16,35 @@ You should print out the following:
 5
 """
 def spiral(matrix):
-    ans = []
-    if(len(matrix)==0):
-        return ans
-    row = len(matrix)
-    column = len(matrix[0])
-    seen = [[0 for i in range(column)] for j in range(row)]
-    dr = [0, 1, 0, -1]
-    dc = [1, 0, -1, 0]
-    r = 0
-    c = 0
-    direction = 0
-    # iterate from 0 to row * column - 1
-    for i in range(row * column):
-        ans.append(matrix[r])
-        seen[r]=True
-        cr =r + dr[direction]
-        cc = c + dc[direction]
-        if (0 <= cr and cr < row and 0 <= cc and cc < column and not(seen[cr][cc])):
-            row = cr
-            column = cc
-        else:
-            direction = (direction + 1) % 4
-            row += dr[direction]
-            column += dc[direction]
-    return ans
+    startRow = 0  # k
+    startCol = 0  # l
+    endRow = len(matrix) # m
+    endCol = len(matrix[0]) # n
+    while (startRow < endRow and startCol < endCol):
+        #print first row from remaining row
+        for i in range(startCol, endCol):
+            print(matrix[startRow][i], end=" ")
+        
+        startRow+=1
+        #print last column from remaining columns
+        for i in range(startRow, endRow):
+            print(matrix[i][endCol - 1], end=" ")
+        endCol-=1
+        #print last row from remaining rows
+        if (startRow < endRow):
+            for i in range(endCol - 1, (startCol - 1), -1):
+                print(matrix[endRow - 1][i], end=" ")
+            endRow-=1
+        #print first col from remaining columns
+        if (startCol < endCol):
+            for i in range(endRow - 1, startRow - 1, -1):
+                print(matrix[i][startCol], end=" ")
+            startCol+=1
 
-test = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
+    
 
-for x in spiral(test):
-    print(x, end=" ")
-print()
+test = [[1, 2, 3, 4], 
+        [5, 6, 7, 8], 
+        [9, 10, 11, 12], 
+        [13, 14, 15, 16]]
+spiral(test)
