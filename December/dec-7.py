@@ -34,3 +34,36 @@ def legal_moves_from(row, col, board_size):
         move_row, move_col = row + row_offset, col + col_offset
         if 0 <= move_row < board_size and 0 <= move_col <board_size:
             yield move_row, move_col
+
+def first_true(sequence):
+    for item in sequence:
+        if item:
+            return item
+    return None
+
+def find_solution_for(board_size, heuristic=lambda graph: None):
+    graph = build_graph(board_size)
+    total_squares = board_size * board_size
+
+    def traverse(path, current_vertex):
+        #including current square
+        if len(path) +1 == total_squares:
+            #return path as a solution
+            return path + [current_vertex]
+        yet_to_visit = graph[current_vertex] - set(path)
+        if not yet_to_visit:
+            #no unvisited neighbors, so dead end
+            return False
+        #try all valid paths from here
+        next_vertices = sorted(yet_to_visit, heuristic(graph))
+        return first_true(traverse(path + [current_vertex], vertex)
+                        for vertex in next_vertices)
+    
+    return first_true(traverse([], starting_vertex) for starting_vertex in graph)
+
+def warnsdorffs_heuristic(graph):
+    def comparator(a, b):
+        return len(graph[a]) - len(graph[b])
+    return comparator
+
+find_solution_for(8, warnsdorffs_heuristic)  #=> # [(1, 3), (0, 1), (2, 0), (4, 1), (2, 2), ... ]
