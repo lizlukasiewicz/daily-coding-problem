@@ -25,3 +25,7 @@ The board would look like this:
 You should return 2, since bishops 1 and 3 attack each other, 
 as well as bishops 3 and 4.
 """
+def protect_your_bishop_glen(m, tuples):
+    attack = 0
+    
+
