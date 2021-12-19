@@ -27,5 +27,7 @@ as well as bishops 3 and 4.
 """
 def protect_your_bishop_glen(m, tuples):
     attack = 0
+    #loop through first value of tuple
+    
     
 
