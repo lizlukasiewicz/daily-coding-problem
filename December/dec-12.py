@@ -25,9 +25,17 @@ The board would look like this:
 You should return 2, since bishops 1 and 3 attack each other, 
 as well as bishops 3 and 4.
 """
-def protect_your_bishop_glen(m, tuples):
-    attack = 0
-    #loop through first value of tuple
+def protect_your_bishop_glen(m, n, listedTuples):
+    attacks = 0
+    #loop through EACH tuple in the list of tuples
+        #compare current tuple to the following tuples
+            #if any of the following tuples are equal 
+            #add 1 to the attacks
+            #else continue through the attacks
+
+    
+    
+
     
     
 
