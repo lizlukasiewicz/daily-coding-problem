@@ -13,3 +13,17 @@ since we can't modify any one element to get a non-decreasing array.
 
 
 """
+def increasing(array):
+    #determine if the first value is more than the second value
+    ans = 0
+    i = 0
+    while i < len(array):
+        if array[i] > array[i+1]:
+            ans +=1
+        else:
+            continue
+        i+=1
+    if ans > 1:
+        return False
+    else:
+        return True
