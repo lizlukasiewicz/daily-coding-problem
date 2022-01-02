@@ -25,15 +25,12 @@ class BinaryTree:
         self.root = None
 
     def depth(self, node = None):
-        if not node:
-            node = self.root
-        max_height = 0 
-        def recursive_height(node, height=1):
-            nonlocal max_height
-            if node: 
-                if height> max_height:
-                    max_height = height
-                recursive_height(node.left, height +1)
-                recursive_height(node.right, height+1)
-            recursive_height(node)
-            return max_height
+        def get_max(self):
+            rightSide = 0
+            leftSide = 0
+            if not self.root:
+                return False
+            current_node = self.root
+            while current_node.right:
+                current_node = current_node.right
+            return current_node.data
