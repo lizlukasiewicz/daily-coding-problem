@@ -9,12 +9,14 @@ less than or equal to the root and the key in the right child must be
 dgreater than or equal to the root.
 """
  
-def isValid(tree, val):
-    if not tree.root:
+def isValid(self, data):
+    if not self.root:
         return False
-    current_node = tree.root
+    current_node = self.root
     while current_node:
-        if val < current_node.data:
-            current_node = current_node.left
-        elif val > current_node.data:
-            current_node
+        if current_node.right <= current_node.data:
+            print("not valid")
+        elif current_node.left >= current_node.data:
+            print("not valid")
+        else:
+            print("valid")
