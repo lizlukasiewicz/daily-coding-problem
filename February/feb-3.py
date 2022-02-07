@@ -7,21 +7,22 @@ And in every even call of getInstance(), return the first instance
 and in every odd call of getInstance(), return the second instance.
 """
 
+
 class SingletonClass(object):
   def __new__(cls):
     if not hasattr(cls, 'instance'):
       cls.instance = super(SingletonClass, cls).__new__(cls)
     return cls.instance
 
-#class SingletonChild(SingletonClass):
-    #pass
+class SingletonChild(SingletonClass):
+    pass
 
-#singleton = SingletonClass()
-#child = SingletonChild()
+singleton = SingletonClass()
+child = SingletonChild()
  
 #print(child is singleton)
  
-#singleton.singl_variable = "Singleton Variable"
+singleton.singl_variable = 1
 #print(child.singl_variable)
 
 
@@ -35,11 +36,11 @@ class BorgSingleton(object):
     return obj
    
 borg = BorgSingleton()
-borg.shared_variable = 1
+borg.shared_variable = 0
  
 class ChildBorg(BorgSingleton):
   borg.shared_variable += 1
  
 childBorg = ChildBorg()
 #print(childBorg is borg)
-print(childBorg.shared_variable)
+#print(childBorg.shared_variable)
