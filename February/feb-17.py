@@ -13,4 +13,10 @@ get(i): gets the value at index i.
 
 """
 class SparseArray:
-    
+    def init(arr, size):
+    #loop thrugh array with enumerate?
+        print(arr, size)
+    def set(i , val):
+        print(val, i)
+    def get(i):
+        print(i)
