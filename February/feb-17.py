@@ -16,7 +16,7 @@ class SparseArray:
     def init(arr, size):
     #loop thrugh array with enumerate?
         print(arr, size)
-    def set(i , val):
-        print(val, i)
-    def get(i):
-        print(i)
+        def set(i , val):
+            print(val, i)
+        def get(i):
+            print(arr.index(i))

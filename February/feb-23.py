@@ -10,3 +10,11 @@ return 4 and 8. The order does not matter.
 
 Follow-up: Can you do this in linear time and constant space?
 """
+
+def singleElem(arr):
+    for num in arr:
+        if arr.count(num) == 1:
+            return num
+
+test = [2, 4, 6, 8, 10, 2, 6, 10]
+singleElem(test)
