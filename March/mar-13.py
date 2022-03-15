@@ -17,3 +17,9 @@ Down, right, down, right
 The top left corner and bottom right corner will always be 0.
 
 """
+def many_ways(matrix):
+    print(matrix)
+
+test1 = [[0, 0, 1],
+        [0, 0, 1],
+        [1, 0, 0]]
