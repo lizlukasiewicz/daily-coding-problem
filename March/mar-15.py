@@ -21,3 +21,6 @@ the longest path would be:
 the path does not have to pass through the root, 
 and each node can have any amount of children
 """
+from DataStructures import Node
+my_node = Node('hello')
+print(my_node)
