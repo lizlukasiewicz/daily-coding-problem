@@ -28,8 +28,6 @@ def smallArray(list):
         new.append(diff)
     print(new)
 
-    # starting from index of the item currently being looped
-    #
-    # comare that item to the rest of the values in the array
+
 test1=[3, 4, 9, 6, 1]
 smallArray(test1)
