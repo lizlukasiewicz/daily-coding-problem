@@ -16,26 +16,60 @@ For example, given the following board:
 ]
 exists(board, "ABCCED") returns true, exists(board, "SEE") returns true, exists(board, "ABCB") returns false.
 """
-# loop through the arrays for the first character of the string, return the index # for 
+def exists(board, string):
+  max_row=len(board)
+  max_col=len(board[0])
+  start_options=[]
+  start_letter=string[0]
+  for i in range(len(board)):
+    for j in range(len(board[i])):
+      if board[i][j]==start_letter:
+        start_options.append((i, j))
+  print(start_options)
 
-# then 
-x = 10
-y = 2
-#print(x<<y)
-# 👾 print(x*(2**y))
+  def get_neighbours(row, col, next_letter):
+    directions = [(-1, 0),(0, -1),(0, 1), (1, 0),]
+    for row_diff, col_diff in directions:
+      new_row=row+row_diff
+      new_col=col+col_diff
+      if (new_row>max_row or 0>new_row) and (new_col>max_col or 0>new_col):
+          continue
+      if board[new_row][new_col] != next_letter:
+          continue
+      yield (new_row, new_col)
+  
+  for start_row, start_col in start_options:
+    next_row=start_row
+    next_col=start_col
 
-#print(x>>y)
-# 👾 print(x//(2**y))
+    for x in range(len(string)-1):
+      current_letter=string[x]
+      next_letter=string[x+1]
+      #neighbors=[]
+      for neighbor_row, neighbor_col in get_neighbours(next_row, next_col, next_letter):
+        #neighbors.append(board[neighbor_row][neighbor_col])
+        if board[neighbor_row][neighbor_col]==next_letter:
+          next_row, next_col=neighbor_row, neighbor_col
+          continue
+      #print(f'letter:{current_letter} neighbors:{neighbors}')
+        
+          # print('FALSE')
+    return False
+        
+        #print(f'letter:{letter} neighbors:{board[neighbor_row][neighbor_col]}')
 
-#print(y<<x)
-# 👾 print(y*(2**x))
 
-#print(y>>x)
-# 👾 print(y//(2**x))
+  
 
-print(x&y, " = 10 & 2")
-print(x|y, " = 10 | 2")
-print(~x, "= ~10  same as -10 - 1")
-print(x^y, " = 10 ^ 2")
-
-print(2**10)
+test_board=[
+  ['A','B','C','E'],
+  ['S','F','C','S'],
+  ['A','D','E','E'],
+  ['Z','Z','Z','Z']
+]
+test_string="ABCCED"
+test_string2="SEE"
+test_string3="ABCB"
+exists(test_board,test_string)
+# exists(test_board,test_string2)
+# exists(test_board,test_string3)

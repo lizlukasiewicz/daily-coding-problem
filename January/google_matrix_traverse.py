@@ -23,35 +23,22 @@ It takes 1 step to move from (0, 0) to (1, 1). It takes one more step to move fr
 """
 
 
-def matrix_steps(steps, board):
+def matrix_steps(steps):
     #step= (column, row)
-    
-    # def get_neighbors(row, col):
-    #     for row_diff, col_diff in steps:
-    #         new_row=row+row_diff
-    #         new_col=col+col_diff
-    #         if not (0 <= new_row <= max_row and 0 <= new_col <= max_col):
-    #             continue
-    #         yield (new_row, new_col)
-    for i in range(len(steps)-1):
-        next_step=steps[i+1]
-        current=steps[i]
-        # if abs(next_step[0]-current[0])<=1 or abs(next_step[1]-current[1])<=1:
-        board[current[0]][current[1]]=1
-        board[next_step[0]][next_step[1]]=1
-        # else:
-        #     print(f'cannot step more than 1')
-        # next_s=steps[i+1]# (1, 1)
-        # step= 1 if abs(next_s[0]-current[0])==1 or abs(next_s[1]-current[1])==1 else 0
-        # if step>0:
-    print('new board:')
-    for row in board:
-        print(row)
+    first=steps[0]
+    last=steps[-1]
+    m_count=max(abs(first[0]-last[0]), abs(first[1]-last[1]))
+
+    print(f'min steps:{m_count}')
 
 
 #calculate 
-t_board=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+
 test = [(0, 0), (1, 1), (1, 2)]
 test2=[(0, 0), (0, 1), (0, 2), (1, 2)]
-matrix_steps(test, t_board)
-matrix_steps(test2, t_board)
+test3=[(5, 5), (4, 4), (3, 4), (3, 3), (3, 5)]
+test4=[(3, 3), (3, 4), (2, 4), (1, 4), (0, 5)]
+matrix_steps(test)
+matrix_steps(test2)
+matrix_steps(test3)
+matrix_steps(test4)
