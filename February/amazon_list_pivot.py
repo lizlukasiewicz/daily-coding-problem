@@ -11,15 +11,14 @@ Ordering within a part can be arbitrary.
 For example, given x = 10 and lst = [9, 12, 3, 5, 14, 10, 10], one partition may be [9, 3, 5, 10, 10, 12, 14].
 """
 def partition_pivot1(x, lst):
-    print(x, lst)
-    #initialize empty array
-    # loop through array if item is less than x pop it out and append to new array
-    # loop through array if item is equal to x pop it out and append to new array
-    # append last items to new array
+    pivot=[]
+    less=[num for num in lst if num < x]
+    eq=[n for n in lst if n==x]
+    great=[g for g in lst if g>x]
+    print(f'{less} | {eq} | {great}')
 
-def partition_pivot2(x, lst):
-    # enumerate through array 
-    print(x)
+
 
 testx = 10
 testlst = [9, 12, 3, 5, 14, 10, 10]
+partition_pivot1(testx, testlst)

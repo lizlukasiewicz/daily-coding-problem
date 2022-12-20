@@ -16,7 +16,7 @@ import threading
 
 test_n=100
 def test_funct(str):
-    print(f'hell0 {str}')
+    print(f'🦄 hell0 {str}')
 
 def debounce(N):
     def decorator(f):

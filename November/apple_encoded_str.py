@@ -17,4 +17,5 @@ Hello world from Daily Coding Problem
 example_string='7a575e5e5d12455d405e561254405d5f1276535b5e4b12715d565b5c551262405d505e575f'
 n=2
 string_list=[example_string[i:i+n] for i in range(0, len(example_string), n)]
-print(string_list)
+val={j:string_list.count(j) for j in string_list}
+print(val)

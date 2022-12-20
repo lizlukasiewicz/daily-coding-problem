@@ -28,6 +28,7 @@ def exists(board, string):
   print(start_options)
 
   def get_neighbours(row, col, next_letter):
+    print(f'get_neighbors({next_letter}  , row:{row}, col:{col})')
     directions = [(-1, 0),(0, -1),(0, 1), (1, 0),]
     for row_diff, col_diff in directions:
       new_row=row+row_diff
@@ -36,7 +37,9 @@ def exists(board, string):
           continue
       if board[new_row][new_col] != next_letter:
           continue
+      print(f'new_row:{new_row}, new_col:{new_col}')
       yield (new_row, new_col)
+
   
   for start_row, start_col in start_options:
     next_row=start_row
@@ -45,13 +48,13 @@ def exists(board, string):
     for x in range(len(string)-1):
       current_letter=string[x]
       next_letter=string[x+1]
+      print(f'current_letter:{current_letter} next_letter:{next_letter}')
       #neighbors=[]
       for neighbor_row, neighbor_col in get_neighbours(next_row, next_col, next_letter):
         #neighbors.append(board[neighbor_row][neighbor_col])
         if board[neighbor_row][neighbor_col]==next_letter:
           next_row, next_col=neighbor_row, neighbor_col
           continue
-      #print(f'letter:{current_letter} neighbors:{neighbors}')
         
           # print('FALSE')
     return False
@@ -71,5 +74,5 @@ test_string="ABCCED"
 test_string2="SEE"
 test_string3="ABCB"
 exists(test_board,test_string)
-# exists(test_board,test_string2)
-# exists(test_board,test_string3)
+exists(test_board,test_string2)
+exists(test_board,test_string3)

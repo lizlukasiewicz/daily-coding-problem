@@ -19,15 +19,24 @@ You should return the following:
 
 """
 def browsing_his(u1, u2):
+    stack=[0]*(len(u2)+1)
+    
     tbl=[[0 for _ in range(len(u2)+1)] for _ in range(len(u1)+1)]
+    print(f'stack:{stack}\ntbl:{tbl}')
     for i, x in enumerate(u1):
-        print(f'🐲 ({x}){tbl[i]} ')
         for j, y in enumerate(u2):
-            print(f'({y}) 🌺 {tbl[i+1][j+1]} = {tbl[i][j]+1} if ({x}) == ({y}) else: 0')#max({tbl[i+1][j]}, {tbl[i][j+1]})')#+1)
-            tbl[i+1][j+1] = tbl[i][j]+1 if x == y and u1[i-1]==u2[j-1] else max(tbl[i+1][j], tbl[i][j+1])
-            # print(tbl[i+1][j+1])
-    res=[]
-    i, j = len(u1), len(u2)
+            tbl[i+1][j+1]=tbl[i][j]+1 if x==y and u1[i-1]==u2[j-1] else max(tbl[i+1][j], tbl[i][j+1])
+        print(tbl)
+    for row in tbl:
+        print(row)
+    # for i, x in enumerate(u1):
+    #     print(f'🐲 ({x}){tbl[i]} ')
+    #     for j, y in enumerate(u2):
+    #         print(f'({y}) 🌺 {tbl[i+1][j+1]} = {tbl[i][j]+1} if ({x}) == ({y}) else: 0')#max({tbl[i+1][j]}, {tbl[i][j+1]})')#+1)
+    #         tbl[i+1][j+1] = tbl[i][j]+1 if x == y and u1[i-1]==u2[j-1] else max(tbl[i+1][j], tbl[i][j+1])
+    #         # print(tbl[i+1][j+1])
+    # res=[]
+    # i, j = len(u1), len(u2)
     # while i and j:
     #     if tbl[i][j] == tbl[i - 1][j]:
     #         print(f'🪺 [i][j]:{tbl[i][j]} == [i-1][j]:{tbl[i - 1][j]}')
