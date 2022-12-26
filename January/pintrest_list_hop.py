@@ -8,20 +8,10 @@ For example, [2, 0, 1, 0] returns True while [1, 1, 0, 1] returns False.
 
 
 """
-def hops(array):
-    # evaluate each value of the array with enumerate
-    hop = 0
-    end = len(array) - 1
-    for i, val in enumerate(array):
-        print(i,"index", val, "value")
-        land = hop+val
-        print(land, "landing")
-        # ⬇️ infinite loop ⬇️ dont run this
-        # while land < end:
-        #     array[land] += val
-        #     print(array[land], "next")
+def hops(array: list):
     
-    #print(array)
+    start=array[array[0]]
+    
 
 test = [2, 0, 1, 0]
 hops(test)
