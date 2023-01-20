@@ -12,3 +12,11 @@ For example, given the following matrix:
  [0, 1, 0, 0]]
 Return 4.
 """
+def max_area(m: list):
+    highest=0
+    track=[0*len(m)]
+
+test_matrix=[[1, 0, 0, 0],
+            [1, 0, 1, 1],
+            [1, 0, 1, 1],
+            [0, 1, 0, 0]]
