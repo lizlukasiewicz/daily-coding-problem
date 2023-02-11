@@ -10,7 +10,7 @@ For example, given s = "abcba" and k = 2, the longest substring with k distinct 
 
 def substring(k:int, s:str):
     char={}
-    longest=[]
+    longest={}
     left=0
     for right in range(len(s)):
         char[s[right]]=char.get(s[right], 0)+1
@@ -22,8 +22,9 @@ def substring(k:int, s:str):
                 del char[s[left]]
             
             left+=1
-        longest.append(s[left:right+1])
-    print(f's:{s}, k:{k}\nlongest:{longest}')
+        longest[right-left+1]=s[left:right+1]
+    length=max(longest.keys())
+    return longest[length]
     
 testk=2
 tests='abcba'
