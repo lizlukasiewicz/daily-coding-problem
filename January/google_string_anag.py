@@ -15,8 +15,8 @@ def anagram(W: str, S:str):
     char=set(W)
     # optimize? :: make it recursive
     while window <= len(S):
-        y=char.symmetric_difference(set(S[left:window]))
-        if y==set():
+        y=char.issubset(set(S[left:window]))
+        if y:
           empty_array.append(left)
         left+=1
         window+=1
