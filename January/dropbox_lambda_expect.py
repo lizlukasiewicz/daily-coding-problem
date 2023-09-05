@@ -15,10 +15,11 @@ for f in functions:
 functions = []
 
 for i in range(10):
-    functions.append(i)
+    
     print(i, "🦋")
+    functions.append(lambda : i)
 
 for f in functions:
-    print(f)
+    print(f())
 
 
