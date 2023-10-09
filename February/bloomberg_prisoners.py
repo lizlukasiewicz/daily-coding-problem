@@ -13,23 +13,29 @@ Bonus: Find an O(log N) solution if k = 2.
 
 """
 def execution(K:int, N:int):
-    pris=[i for i in range(1, N+1)]*K
-    print(f'pris: {pris}')
-    pop={}
-    # for num in pris:
+    order=[]
+    circle=[i for i in range(1, N+1)]
+    print(f'circle:{circle}')
+    count=K
+    ## CONDITION 1: while len(circle)> 1:
+    while len(circle) > 1:
+      to_remove=[]
+    
+      ## CONDITION 2: while count > 0
+      for i, pris in enumerate(circle):
+        count-=1
+        print(f'({count}) prisoner:{pris}')
+        if count < 1:
+            order.append(pris)
+            to_remove.append(i)
+            count=K
+      
+      for ind in reversed(to_remove):
+         circle.pop(ind)
 
-    #     while len(pris)>K:
-        
+    return circle[0]
 
-
-    #while len(pris) > 1:
-          #if i%K !=0
-    #     pris.pop(K)
-
-        # for num in step:
-        #     pris.pop(num)
-        # print(f'after:{pris}')
-
-testN=5
-testk=2
-execution(K=testk, N=testN)
+if __name__ == '__main__':
+  testN=5
+  testk=2
+  print(execution(K=testk, N=testN))
