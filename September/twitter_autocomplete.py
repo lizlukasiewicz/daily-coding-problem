@@ -13,6 +13,6 @@ and the set of strings [dog, deer, deal],
 return [deer, deal].
 
 Hint: Try preprocessing the dictionary 
-into a more efficient data structure to speed up queries.
+ into a more efficient data structure to speed up queries.
 
 """
