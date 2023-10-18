@@ -190,33 +190,33 @@ class DoublyLinkedList:
             return
         else:
             n = self.current
-            print(f"self.current: {n.val}")
             while n is not None:
-                n = n.next
+              print(f"self.current: {n.val}")
+              n = n.next
         print("\n")
 
 # Create a new Doubly Linked List
-#double_ll = DoublyLinkedList()
+double_ll = DoublyLinkedList()
 # Insert the element to empty list
-#double_ll.insert_into_empty_list(10)
+double_ll.insert_into_empty_list(10)
 # Insert the element at the end
-#double_ll.append(20)
-#double_ll.append(30)
-#double_ll.append(40)
-#double_ll.append(50)
-#double_ll.append(60)
+double_ll.append(20)
+double_ll.append(30)
+double_ll.append(40)
+double_ll.append(50)
+double_ll.append(60)
 
 # Display Data
-#print('LinkedList:')
-#double_ll.display()
+print('LinkedList:')
+double_ll.display()
 
 # Delete elements from start
-#double_ll.delete_first()
-#print('Deleted first element')
-#double_ll.display()
+print('Deleting first element')
+double_ll.delete_first()
+double_ll.display()
 
 
 # Delete elements from end
-#double_ll.delete_at_end()
-#print('deleted last element')
-#double_ll.display()
+print('delete last element')
+double_ll.delete_at_end()
+double_ll.display()

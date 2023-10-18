@@ -20,44 +20,76 @@ given 1 -> 2 -> 3 -> 4,
 return 2 -> 1 -> 4 -> 3
 
 """
-class SingleSwap(LinkedList):
+class ListNode:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+    #passing __str__ in a class asks "what do you want me to do if im printed"
+    def __str__(self):
+        return f'{self.data}'
+
+class LinkedList:
     def __init__(self):
-       super().__init__(self)
-       self.second_node=True
-       
+        self.start_node = None
+        self.second_node=0
+    
+    def append(self, new_data):
+        # Check if the list is empty
+        if self.start_node is None:
+            new_node = ListNode(new_data)
+            self.start_node = new_node
+            return
+        
+        temp = self.start_node
+        new_node = ListNode(new_data)
+        while temp.next is not None:
+            temp = temp.next
+        temp.next = new_node
+
     # still workin on this
-    # def swap(self):
-    #    curr=self.head
-    #    next=curr.next
-    #    while next is not None:
-    #       if self.second_node:
-    #         first=curr
-    #         second=curr.next
-    #         curr=second
-    #         next=first
-    #         self.second_node=False
-          
+    def swap(self):
+       if self.start_node is None:
+          print('list is empty')
+          return
+       curr=self.start_node
+       temp_next=curr.next
+       while temp_next is not None and self.second_node < 10:
+          next_next=temp_next.next
+          print(f'curr:{curr.data} next:{temp_next.data}')
+          if self.second_node%2==0:
+             to_swap=temp_next
+             print(f'{to_swap.data} -> {curr.data} -> {next_next.data}')
+             curr=temp_next
+             temp_next=temp_next.next
+          else:
+             print(f'{curr.data} -> {temp_next.data}')
+             curr=curr.next
+             temp_next=temp_next.next
+          # temp_next=temp_next.next
+          self.second_node+=1
+      
         
           
-       #if self.second_node:
+
 
     def display(self):
-      if self.head is None:
+      if self.start_node is None:
         print("The list is empty")
         return
       else:
-        n = self.head
+        n = self.start_node
         while n is not None:
-          print(f"self.head: {n.data}")
+          print(f"self.start_node: {n.data}")
           n = n.next
       print("\n")
   
-ll=SingleSwap()
+ll=LinkedList()
 no=[1,2,3,4]
 for n in no:
     ll.append(n)
 
 ll.display()
+ll.swap()
 
 
 
