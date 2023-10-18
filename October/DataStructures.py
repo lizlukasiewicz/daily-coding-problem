@@ -62,16 +62,16 @@
 #         if node.right:
 #             self.print(node.right, "↘️")
 
-class ListNode:
-    def __init__(self, data):
+class ListNode: # CLASS NAME
+    def __init__(self, data): # PROPERTIES
         self.data = data
         self.next = None
-    #passing __str__ in a class asks "what do you want me to do if im printed"
+    # passing __str__ in a class asks "what do you want me to do if im printed"
     def __str__(self):
         return f'{self.data}'
 
-class LinkedList:
-    def __init__(self):
+class LinkedList: # CLASS NAME
+    def __init__(self): # PROPERTIES
         self.head = None
 
     def __str__(self):
@@ -82,7 +82,7 @@ class LinkedList:
             temp = temp.next
         return f'{result}'
     
-    def get_node_at_index(self, index):
+    def get_node_at_index(self, index): # METHOD
         counter = 0 
         temp = self.head
         while counter < index:
@@ -194,29 +194,3 @@ class DoublyLinkedList:
             while n is not None:
                 n = n.next
         print("\n")
-
-# Create a new Doubly Linked List
-#double_ll = DoublyLinkedList()
-# Insert the element to empty list
-#double_ll.insert_into_empty_list(10)
-# Insert the element at the end
-#double_ll.append(20)
-#double_ll.append(30)
-#double_ll.append(40)
-#double_ll.append(50)
-#double_ll.append(60)
-
-# Display Data
-#print('LinkedList:')
-#double_ll.display()
-
-# Delete elements from start
-#double_ll.delete_first()
-#print('Deleted first element')
-#double_ll.display()
-
-
-# Delete elements from end
-#double_ll.delete_at_end()
-#print('deleted last element')
-#double_ll.display()
