@@ -30,6 +30,7 @@ def flatten(d: dict, path=None):
     # path=''
     path=[]
   for key, val in iter(d.values()) and iter(d.items()):
+    print(f'\t\t\t🔮 key:{key} \tval: {val}')
     newpath= path+[key]
     if isinstance(val, dict):
       for u in flatten(val, newpath):
@@ -48,17 +49,33 @@ if __name__=='__main__':
         "a": 5,
         "bar": {
             "baz": 8
+        },
+        "car":9,
+    },
+    "hello": {
+        "world": {
+            "why":1,
+            "baz": 8
+        },
+        "girl":{
+          "cherry":0,
+          "gone":8
         }
-    }
+    },
   }
   new_dict={}
+  print('original dict:\n{')
+  for i in ex_d:
+    print(f'\t{i}: {ex_d[i]}')
+  print('}\n\n')
+
   for path, val in flatten(ex_d):
     new_keys='.'.join(path)
-    print(f"{new_keys}: {val}")
+    print(f"🐝{new_keys}: {val}")
     # ex_d.pop(path[0], '')
     new_dict[new_keys]=val
-  print('updated dict:')
+  print('\nupdated dict:')
 
   for k, v in new_dict.values() and new_dict.items():
-    print(f'{k}: {v}, ')
+    print(f'\t{k}: {v}, ')
   
